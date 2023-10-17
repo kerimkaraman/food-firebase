@@ -18,11 +18,14 @@ export default function Signup({ navigation }) {
     createUserWithEmailAndPassword(auth, inputs.mail, inputs.password)
       .then((userCredential) => {
         const user = userCredential.user;
+        navigation.navigate("Homepage");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        return Alert.alert(errorCode, errorMessage);
+        if (errorCode === "auth/email-already-in-use") {
+          Alert.alert("Hata", "Bu email adresi zaten kullanılmaktadır.");
+        }
       });
   };
 
@@ -32,7 +35,7 @@ export default function Signup({ navigation }) {
         className="w-full h-[400px]"
         source={require("../assets/images/signup.jpg")}
       />
-      <View className="rounded-tl-3xl flex-1 gap-y-5 rounded-tr-3xl mt-[-30px] bg-white p-6">
+      <View className="rounded-tl-3xl flex-1 gap-y-8 rounded-tr-3xl mt-[-30px] bg-white p-6">
         <Text className="pl-2 text-2xl font-bold">Kaydol</Text>
         <TextInput
           onChangeText={(value) => {
@@ -42,6 +45,7 @@ export default function Signup({ navigation }) {
           placeholder="Email"
         />
         <TextInput
+          secureTextEntry={true}
           onChangeText={(value) => {
             inputs.password = value;
           }}

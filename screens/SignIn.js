@@ -1,8 +1,18 @@
-import { View, Text, Image, TextInput, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  Pressable,
+  Alert,
+  KeyboardAvoidingView,
+} from "react-native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { AUTH } from "../firebaseConfig";
+import { useRef, useState } from "react";
 
 export default function SignIn({ navigation }) {
+  const textInputRef = useRef(null);
   const pressHandler = () => {
     navigation.navigate("Signup");
   };
@@ -12,6 +22,26 @@ export default function SignIn({ navigation }) {
     password: "",
   });
 
+  const handleSignUp = (inputs) => {
+    const auth = AUTH;
+    signInWithEmailAndPassword(auth, inputs.mail, inputs.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        navigation.navigate("Homepage");
+        textInputRef.current.clear();
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if (errorCode === "auth/invalid-login-credentials") {
+          Alert.alert(
+            "Hata",
+            "Email veya şifre yanlıştır. Lütfen tekrar deneyiniz."
+          );
+        }
+      });
+  };
+
   return (
     <View className="flex-1">
       <Image
@@ -20,13 +50,27 @@ export default function SignIn({ navigation }) {
       />
       <View className="rounded-tl-3xl flex-1 gap-y-8 rounded-tr-3xl mt-[-30px] bg-white p-6">
         <Text className="pl-2 text-2xl font-bold">Giriş Yap</Text>
-        <View className="justify-center bg-[#F6F6F6] p-4 rounded-xl">
-          <TextInput className="text-lg" placeholder="Email" />
-        </View>
-        <View className="justify-center bg-[#F6F6F6] p-4 rounded-xl">
-          <TextInput className="text-lg" placeholder="Şifre" />
-        </View>
-        <Pressable className="bg-pink-600 rounded-full">
+        <TextInput
+          ref={textInputRef}
+          onChangeText={(value) => {
+            inputs.mail = value;
+          }}
+          className="text-xl p-4 bg-[#F6F6F6] rounded-xl"
+          placeholder="Email"
+        />
+        <TextInput
+          secureTextEntry={true}
+          ref={textInputRef}
+          onChangeText={(value) => {
+            inputs.password = value;
+          }}
+          className="text-xl p-4 bg-[#F6F6F6] rounded-xl"
+          placeholder="Şifre"
+        />
+        <Pressable
+          onPress={() => handleSignUp(inputs)}
+          className="bg-pink-600 rounded-full"
+        >
           <Text className="text-center text-xl font-medium text-white py-3">
             Giriş Yap
           </Text>

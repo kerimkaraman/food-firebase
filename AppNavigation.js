@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import SignUp from "./screens/SignUp";
 import SignIn from "./screens/SignIn";
+import Homepage from "./screens/Homepage";
 
 function AppNavigation() {
   const Stack = createNativeStackNavigator();
@@ -22,6 +23,7 @@ function AppNavigation() {
           name="Signin"
           component={SignIn}
         />
+        <Stack.Screen name="Homepage" component={Homepage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
