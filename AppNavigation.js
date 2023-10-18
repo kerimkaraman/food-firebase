@@ -23,7 +23,11 @@ function AppNavigation() {
           name="Signin"
           component={SignIn}
         />
-        <Stack.Screen name="Homepage" component={Homepage} />
+        <Stack.Screen
+          options={{ title: "Anasayfa" }}
+          name="Homepage"
+          component={Homepage}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -38,6 +38,7 @@ export default function Signup({ navigation }) {
       <View className="rounded-tl-3xl flex-1 gap-y-8 rounded-tr-3xl mt-[-30px] bg-white p-6">
         <Text className="pl-2 text-2xl font-bold">Kaydol</Text>
         <TextInput
+          autoCapitalize="none"
           onChangeText={(value) => {
             inputs.mail = value;
           }}
