@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import SignUp from "./screens/SignUp";
 import SignIn from "./screens/SignIn";
 import Homepage from "./screens/Homepage";
+import RecipeDetails from "./screens/RecipeDetails";
 
 function AppNavigation() {
   const Stack = createNativeStackNavigator();
@@ -27,6 +28,11 @@ function AppNavigation() {
           options={{ title: "Anasayfa" }}
           name="Homepage"
           component={Homepage}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="RecipeDetails"
+          component={RecipeDetails}
         />
       </Stack.Navigator>
     </NavigationContainer>
