@@ -48,22 +48,23 @@ export default function RecipeDetails({ route, navigation }) {
                 <Ionicons name="chevron-back" size={36} color="#6BD094" />
               </Pressable>
             </ImageBackground>
-            <View className="mt-[-30] rounded-tl-2xl rounded-tr-2xl">
-              <View className="flex-col">
-                <Text className="text-4xl font-bold text-center">{ad}</Text>
-                <Text className="text-xl text-[#6BD094] mt-8 mx-auto">
-                  {kategori}
-                </Text>
-              </View>
-              <View className="px-4">
-                <Text className="text-2xl font-bold">Yapılış:</Text>
-                <Text>{yapılış}</Text>
-              </View>
-              <Text>
+            <View className="flex-col mt-[-30] rounded-tl-2xl rounded-tr-2xl">
+              <Text className="text-4xl font-bold text-center">{ad}</Text>
+              <Text className="text-xl text-[#6BD094] mt-8 mx-auto">
+                {kategori}
+              </Text>
+            </View>
+            <View className="px-4 gap-y-2">
+              <Text className="text-2xl font-bold">Tarif</Text>
+              <Text>{yapılış}</Text>
+            </View>
+            <View className="px-4 gap-y-2">
+              <Text className="text-2xl font-bold">Malzemeler</Text>
+              <View>
                 {malzemeler.map((malzeme, index) => {
                   return <Text key={index}>{malzeme}</Text>;
                 })}
-              </Text>
+              </View>
             </View>
           </ScrollView>
         );

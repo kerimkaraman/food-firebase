@@ -4,9 +4,12 @@ import SignUp from "./screens/SignUp";
 import SignIn from "./screens/SignIn";
 import Homepage from "./screens/Homepage";
 import RecipeDetails from "./screens/RecipeDetails";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 function AppNavigation() {
   const Stack = createNativeStackNavigator();
+  const Drawer = createDrawerNavigator();
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -25,7 +28,7 @@ function AppNavigation() {
           component={SignIn}
         />
         <Stack.Screen
-          options={{ title: "Anasayfa" }}
+          options={{ headerShown: false }}
           name="Homepage"
           component={Homepage}
         />
