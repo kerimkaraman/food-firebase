@@ -14,7 +14,7 @@ export default function AllRecipes() {
     onValue(recipes, (snapshot) => {
       const conv = Object.values(snapshot.val());
       setData(conv);
-      console.log(data);
+      console.log(conv);
     });
     setIsLoading(false);
   }

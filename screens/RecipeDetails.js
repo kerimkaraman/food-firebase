@@ -23,8 +23,9 @@ export default function RecipeDetails({ route, navigation }) {
     const db = database;
     const recipes = ref(db, "tarifler/");
     onValue(recipes, (snapshot) => {
-      const value = snapshot.val().filter((recipe) => recipe.ad == ad);
-      setData(value);
+      const conv = Object.values(snapshot.val());
+
+      setData(conv.filter((re) => re.ad === ad));
     });
     setIsLoading(false);
   }
