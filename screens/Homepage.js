@@ -7,8 +7,8 @@ export default function Homepage() {
 
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="All Recipes" component={AllRecipes} />
-      <Drawer.Screen name="Add Recipe" component={AddRecipe} />
+      <Drawer.Screen name="Tüm Tarifler" component={AllRecipes} />
+      <Drawer.Screen name="Tarif Ekle" component={AddRecipe} />
     </Drawer.Navigator>
   );
 }

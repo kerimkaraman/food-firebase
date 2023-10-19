@@ -22,6 +22,7 @@ export default function AllRecipes() {
   useEffect(() => {
     getData();
   }, []);
+
   return (
     <SafeAreaView>
       <ScrollView contentContainerStyle={{ alignItems: "center" }}>
