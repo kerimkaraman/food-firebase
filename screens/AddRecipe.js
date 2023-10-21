@@ -28,7 +28,7 @@ export default function AddRecipe() {
     Alert.alert();
   };
   return (
-    <ScrollView style={{ flex: 1 }} className="bg-white gap-y-6 px-5 pt-10">
+    <ScrollView style={{ flex: 1 }} className="bg-white gap-y-6 px-5  pt-10">
       <Text className="text-2xl font-bold">Tarif Ekle(Add Recipe)</Text>
       <View className="gap-y-5">
         <TextInput
@@ -61,7 +61,10 @@ export default function AddRecipe() {
           placeholder="Malzemeler (Ingredients)"
         />
       </View>
-      <Pressable onPress={handleOnPress} className="bg-pink-600 rounded-full">
+      <Pressable
+        onPress={handleOnPress}
+        className="bg-pink-600 rounded-full mb-20"
+      >
         <Text className="text-center text-xl font-medium text-white py-3">
           Tarifi Ekle
         </Text>

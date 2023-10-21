@@ -38,7 +38,7 @@ export default function RecipeDetails({ route, navigation }) {
     : data.map((recipe) => {
         const { id, ad, gorsel, yapılış, kategori, malzemeler } = recipe;
         return (
-          <ScrollView className="gap-y-4" key={id}>
+          <ScrollView className="gap-y-4 mb-10" key={id}>
             <ImageBackground
               className="w-full h-[300px]"
               source={{ uri: gorsel }}
@@ -58,21 +58,21 @@ export default function RecipeDetails({ route, navigation }) {
             </View>
             <View className="px-4 gap-y-2">
               <View className="flex-row items-center gap-x-2">
-                <Text className="text-xl font-semibold">Tarif</Text>
                 <Image
                   className="w-[24px] h-[24px] object-cover"
                   source={require("../assets/images/recipe.png")}
                 />
+                <Text className="text-xl font-semibold">Tarif</Text>
               </View>
               <Text>{yapılış}</Text>
             </View>
             <View className="px-4 gap-y-2">
               <View className="flex-row items-center gap-x-2">
-                <Text className="text-xl font-semibold">Malzemeler</Text>
                 <Image
                   className="w-[24px] h-[24px] object-cover"
                   source={require("../assets/images/ingredients.png")}
                 />
+                <Text className="text-xl font-semibold">Malzemeler</Text>
               </View>
               <View>
                 {malzemeler.map((malzeme, index) => {

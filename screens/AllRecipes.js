@@ -27,7 +27,6 @@ export default function AllRecipes() {
     <SafeAreaView>
       {isLoading ? null : (
         <FlatList
-          contentContainerStyle={{ alignItems: "center" }}
           className="px-2"
           numColumns={2}
           data={data}
