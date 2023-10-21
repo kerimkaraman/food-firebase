@@ -25,33 +25,44 @@ export default function AllRecipes() {
 
   return (
     <SafeAreaView>
-      <ScrollView contentContainerStyle={{ alignItems: "center" }}>
-        {isLoading
-          ? null
-          : data.map((recipe) => {
-              const { ad, id, gorsel, kategori } = recipe;
-              return (
-                <HomepageCard
-                  key={id}
-                  ad={ad}
-                  gorsel={gorsel}
-                  kategori={kategori}
-                />
-              );
-            })}
-      </ScrollView>
+      {isLoading ? null : (
+        <FlatList
+          contentContainerStyle={{ alignItems: "center" }}
+          className="px-2"
+          numColumns={2}
+          data={data}
+          renderItem={(itemData) => {
+            return (
+              <HomepageCard
+                key={itemData.item.id}
+                ad={itemData.item.ad}
+                gorsel={itemData.item.gorsel}
+                kategori={itemData.item.kategori}
+              />
+            );
+          }}
+        />
+      )}
     </SafeAreaView>
   );
 }
 
-/* data.map((recipe) => {
-              const { ad, id, gorsel, kategori } = recipe;
-              return (
-                <HomepageCard
-                  key={id}
-                  ad={ad}
-                  gorsel={gorsel}
-                  kategori={kategori}
-                />
-              );
-            }) */
+{
+  /* <ScrollView contentContainerStyle={{ alignItems: "center" }}>
+{isLoading
+  ? null
+  : data === null
+  ? null
+  : data.map((recipe) => {
+      const { ad, id, gorsel, kategori } = recipe;
+      return (
+        <HomepageCard
+          key={id}
+          ad={ad}
+          gorsel={gorsel}
+          kategori={kategori}
+        />
+      );
+    })}
+</ScrollView> */
+}

@@ -4,6 +4,7 @@ import {
   ImageBackground,
   Pressable,
   ScrollView,
+  Image,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { ref, onValue } from "firebase/database";
@@ -44,9 +45,9 @@ export default function RecipeDetails({ route, navigation }) {
             >
               <Pressable
                 onPress={handleBack}
-                className="mt-16 ml-5 items-center rounded-full bg-black/[0.5] w-14 py-2"
+                className="mt-16 ml-5 items-center rounded-full bg-white/[0.5] w-14 py-2"
               >
-                <Ionicons name="chevron-back" size={36} color="#6BD094" />
+                <Ionicons name="chevron-back" size={36} color="black" />
               </Pressable>
             </ImageBackground>
             <View className="flex-col mt-[-30] rounded-tl-2xl rounded-tr-2xl">
@@ -56,11 +57,23 @@ export default function RecipeDetails({ route, navigation }) {
               </Text>
             </View>
             <View className="px-4 gap-y-2">
-              <Text className="text-2xl font-bold">Tarif</Text>
+              <View className="flex-row items-center gap-x-2">
+                <Text className="text-xl font-semibold">Tarif</Text>
+                <Image
+                  className="w-[24px] h-[24px] object-cover"
+                  source={require("../assets/images/recipe.png")}
+                />
+              </View>
               <Text>{yapılış}</Text>
             </View>
             <View className="px-4 gap-y-2">
-              <Text className="text-2xl font-bold">Malzemeler</Text>
+              <View className="flex-row items-center gap-x-2">
+                <Text className="text-xl font-semibold">Malzemeler</Text>
+                <Image
+                  className="w-[24px] h-[24px] object-cover"
+                  source={require("../assets/images/ingredients.png")}
+                />
+              </View>
               <View>
                 {malzemeler.map((malzeme, index) => {
                   return <Text key={index}>{malzeme}</Text>;

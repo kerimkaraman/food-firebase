@@ -11,15 +11,15 @@ export default function HomepageCard({ ad, gorsel, kategori }) {
   return (
     <Pressable
       onPress={handleOnPress}
-      className="box-border rounded-xl border w-[352px]  border-gray-500 pb-3 m-2"
+      className="box-border rounded-xl border w-[45%] border-gray-500 pb-3 m-2"
     >
       <Image
-        className="w-[350px] rounded-xl h-[300px] mx-auto"
+        className="rounded-tl-xl w-[100%] h-[100px] rounded-tr-xl mx-auto"
         source={{ uri: gorsel }}
       />
       <View className="gap-y-3">
-        <Text className="text-center text-2xl font-bold">{ad}</Text>
-        <Text className="text-center text-[#6BD094]">{kategori}</Text>
+        <Text className="text-center text-lg font-bold">{ad}</Text>
+        <Text className="text-center tetx-sm text-[#6BD094]">{kategori}</Text>
       </View>
     </Pressable>
   );
