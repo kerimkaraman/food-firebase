@@ -1,4 +1,4 @@
-import { ScrollView, SafeAreaView, FlatList } from "react-native";
+import { SafeAreaView, FlatList } from "react-native";
 import React, { useEffect, useState } from "react";
 import { ref, onValue } from "firebase/database";
 import { database } from "../firebaseConfig";
@@ -14,7 +14,6 @@ export default function AllRecipes() {
     onValue(recipes, (snapshot) => {
       const conv = Object.values(snapshot.val());
       setData(conv);
-      console.log(conv);
     });
     setIsLoading(false);
   }

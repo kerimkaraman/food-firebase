@@ -29,36 +29,36 @@ export default function AddRecipe() {
   };
   return (
     <ScrollView style={{ flex: 1 }} className="bg-white gap-y-6 px-5  pt-10">
-      <Text className="text-2xl font-bold">Tarif Ekle(Add Recipe)</Text>
+      <Text className="text-2xl font-bold">Tarif Ekle</Text>
       <View className="gap-y-5">
         <TextInput
           onChangeText={(val) => (data.ad = val)}
           className="text-xl p-4 bg-[#F6F6F6] rounded-xl"
-          placeholder="Ad (Name)"
+          placeholder="Ad"
         />
         <TextInput
           onChangeText={(val) => (data.gorsel = val)}
           className="text-xl p-4 bg-[#F6F6F6] rounded-xl"
-          placeholder="Görsel Linki (IMG Link)"
+          placeholder="Görsel Linki"
         />
         <TextInput
           onChangeText={(val) => (data.kategori = val)}
           className="text-xl p-4 bg-[#F6F6F6] rounded-xl"
-          placeholder="Kategori (Category)"
+          placeholder="Kategori"
         />
         <TextInput
           onChangeText={(val) => (data.tarif = val)}
           multiline={true}
           numberOfLines={6}
           className="text-xl h-[200px] p-4 bg-[#F6F6F6] rounded-xl"
-          placeholder="Tarif (Recipe)"
+          placeholder="Tarif"
         />
         <TextInput
           onChangeText={(val) => (data.malzemeler = val)}
           multiline={true}
           numberOfLines={6}
           className="text-xl h-[200px] p-4 bg-[#F6F6F6] rounded-xl"
-          placeholder="Malzemeler (Ingredients)"
+          placeholder="Malzemeler"
         />
       </View>
       <Pressable

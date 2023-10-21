@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { View, StyleSheet, SafeAreaView } from "react-native";
+import { View, StyleSheet } from "react-native";
 import AppNavigation from "./AppNavigation";
 import "react-native-gesture-handler";
 
